@@ -17,7 +17,7 @@ version: 0.0.1
 
 
 
-if [ -f $BUILD_DIR/build ]; then
+if [ -f $BUILD_DIR/bin/build ]; then
     echo "-----> Running build"
-    $BUILD_DIR/build $BUILD_DIR $CACHE_DIR $DEPS_DIR $DEPS_IDX
+    $BUILD_DIR/bin/build $BUILD_DIR $CACHE_DIR $DEPS_DIR $DEPS_IDX
 fi
