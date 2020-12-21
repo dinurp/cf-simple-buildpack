@@ -1,0 +1,12 @@
+default_versions: []
+dependencies: []
+dependency_deprecation_dates: []
+include_files:
+- VERSION
+- bin/detect
+- bin/finalize
+- bin/release
+- bin/supply
+- manifest.yml
+language: simple
+stack: cflinuxfs3

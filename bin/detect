@@ -1,0 +1,11 @@
+#!/bin/bash
+# bin/detect <build-dir>
+
+BUILD_DIR=$1
+
+# See if we can find a file that ends in .rockspec
+if [[ $(ls $BUILD_DIR/bin/boot.sh 2> /dev/null | wc -l) -gt 0 ]]; then
+  echo "Simple" && exit 0
+else
+  exit 1
+fi

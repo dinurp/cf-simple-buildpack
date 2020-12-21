@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euo pipefail
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+DEPS_DIR=$3
+DEPS_IDX=$4
+
+echo "-----> Running simple supply"
+
+
+echo '---
+#processes:
+#- type: "sidecar_process"
+#  command: "while true; do echo hello from a sidecar; sleep 10; done"
+#  limits:
+#    memory: 100
+#  platforms:
+#    cloudfoundry:
+#      sidecar_for: [ "web"]
+' > "$DEPS_DIR"/"$DEPS_IDX"/launch.yml
