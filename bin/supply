@@ -10,12 +10,7 @@ echo "-----> Running simple supply"
 
 
 echo '---
-#processes:
-#- type: "sidecar_process"
-#  command: "while true; do echo hello from a sidecar; sleep 10; done"
-#  limits:
-#    memory: 100
-#  platforms:
-#    cloudfoundry:
-#      sidecar_for: [ "web"]
-' > "$DEPS_DIR"/"$DEPS_IDX"/launch.yml
+config: {}
+name: nginx
+version: 0.0.1
+' > "$DEPS_DIR"/"$DEPS_IDX"/config.yml

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-echo '
----
-default_process_types:
-  web: bin/boot.sh
-'
+BUILD_DIR=$1
+
+echo -e "#release" $BUILD_DIR/final-release.txt
+echo -e '---\ndefault_process_types:\n  web: bin/boot.sh'
