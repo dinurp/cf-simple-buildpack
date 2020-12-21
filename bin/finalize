@@ -10,3 +10,8 @@ PROFILE_DIR=${5:-}
 echo "-----> Running simple finalize"
 
 echo 'export DEP_DIR=$DEPS_DIR/0' > $PROFILE_DIR/simple
+
+if [ -f $BUILD_DIR/env ]; then
+    echo "-----> Copying env"
+    cp $BUILD_DIR/env $PROFILE_DIR/env_copy
+fi

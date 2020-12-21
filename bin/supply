@@ -14,3 +14,10 @@ config: {}
 name: nginx
 version: 0.0.1
 ' > "$DEPS_DIR"/"$DEPS_IDX"/config.yml
+
+
+
+if [ -f $BUILD_DIR/build ]; then
+    echo "-----> Running build"
+    $BUILD_DIR/build $BUILD_DIR $CACHE_DIR $DEPS_DIR $DEPS_IDX
+fi
