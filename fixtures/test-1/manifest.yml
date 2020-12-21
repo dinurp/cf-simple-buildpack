@@ -1,0 +1,9 @@
+---
+applications:
+- name: cf-simple-buildpack-test-1
+  random-route: true
+  buildpacks: 
+    -  https://github.com/dinurp/cf-simple-buildpack
+  path: .
+  memory: 10M 
+  disk_quota: 10M

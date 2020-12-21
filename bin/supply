@@ -11,7 +11,7 @@ echo "-----> Running simple supply"
 
 echo '---
 config: {}
-name: nginx
+name: simple
 version: 0.0.1
 ' > "$DEPS_DIR"/"$DEPS_IDX"/config.yml
 
