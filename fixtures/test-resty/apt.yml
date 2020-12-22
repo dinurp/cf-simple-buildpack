@@ -1,0 +1,9 @@
+---
+truncatesources: true
+cleancache: true
+keys:
+- https://openresty.org/package/pubkey.gpg
+repos:
+- deb http://openresty.org/package/ubuntu bionic main
+packages:
+- openresty

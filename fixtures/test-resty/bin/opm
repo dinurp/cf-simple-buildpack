@@ -1,0 +1,6 @@
+#!/bin/sh
+#workaround to set default arguments for opm and resty
+#workaround to opm clearing LUA_PATH when calling resty
+PATH=$(dirname $(realpath $0)):$PATH \
+LUA_PATH_SAVED=$LUA_PATH \
+$openresty/bin/opm --install-dir=$resty_modules $*

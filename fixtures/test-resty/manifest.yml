@@ -1,0 +1,15 @@
+---
+applications:
+- name: cf-simple-buildpack-test-resty
+  random-route: true
+  buildpacks: 
+    -  https://github.com/cloudfoundry/apt-buildpack
+    -  https://github.com/dinurp/cf-simple-buildpack
+  path: .
+  memory: 64M 
+  disk_quota: 64M
+  services:
+    - dev-redis
+    - dev-dest
+    - dev-postgresql
+    - dev-s3    

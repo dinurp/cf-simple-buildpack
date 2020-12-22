@@ -1,0 +1,20 @@
+
+@service=https://cf-simple-buildpack-test-resty-bright-roan.cfapps.eu10.hana.ondemand.com
+
+###
+curl {{service}}/s3/README.txt -u Admin2:letmein
+
+###
+curl {{service}}/lua-hello -u Admin2:letmein
+
+###
+curl {{service}}/httpbin/get -u Admin2:letmein
+
+###
+curl {{service}}/ifconfig -u Admin2:letmein -H "Accept: application/json"
+
+
+###
+GET {{service}}/ifconfig HTTP/1.1
+Accept: application/json
+Authorization: Basic Admin2:letmein

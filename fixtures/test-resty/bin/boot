@@ -1,0 +1,19 @@
+#!/bin/bash
+APP_ROOT=$HOME
+
+APP_ROOT=$APP_ROOT \
+PORT=${PORT:-8080} \
+NAMESERVER=$(grep "nameserver" /etc/resolv.conf | awk '{print $2}' | tr '\n' ' ') \
+erb $APP_ROOT/nginx/conf/nginx.conf.erb > $APP_ROOT/nginx/conf/nginx.conf
+
+ln -fs /home/vcap/deps/1/nginx/resty-modules  $APP_ROOT/nginx/resty-modules
+
+#rollout the array of services, select one with a tag S3 
+S3=$(echo $VCAP_SERVICES | jq '[ .[][] | select(.tags | any(. =="s3") ) ][0].credentials' )
+
+export AWS_ACCESS_KEY_ID=$(echo $S3 | jq -r .access_key_id )
+export AWS_SECRET_ACCESS_KEY=$(echo $S3 | jq -r .secret_access_key )
+
+mkdir -p $APP_ROOT/nginx/logs
+echo "Starting server."
+$openresty/nginx/sbin/nginx -p $APP_ROOT/nginx -c $APP_ROOT/nginx/conf/nginx.conf &

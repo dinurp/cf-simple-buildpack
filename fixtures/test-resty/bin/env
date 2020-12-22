@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#openresty insallation done by apt at deps 0
+export openresty=${DEPS_DIR:-/home/vcap/deps}/0/apt/usr/local/openresty
+export LUA_PATH=$openresty/luajit/share/luajit-2.1.0-beta3/?.lua\;$openresty/lualib/?.lua
+export LUA_CPATH=$openresty/lualib/?.so
+export LD_LIBRARY_PATH=$openresty/openssl111/lib/engines-1.1:$openresty/openssl111/lib:$openresty/pcre/lib:$openresty/zlib/lib:$openresty/luajit/lib:$openresty/lualib:$openresty/lualib/redis

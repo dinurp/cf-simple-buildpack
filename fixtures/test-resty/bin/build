@@ -1,0 +1,13 @@
+echo "building with smile"
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+DEPS_DIR=$3
+DEPS_IDX=$4
+
+. $(dirname $0)/env
+export resty_modules=$DEPS_DIR/$DEPS_IDX/nginx/resty-modules
+mkdir -p $resty_modules
+echo installing lua packages in $resty_modules
+$(dirname $0)/opm get GUI/lua-resty-aws-signature
+
